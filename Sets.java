@@ -10,7 +10,7 @@ import java.util.*;
 import static java.lang.Math.abs;
 
 public class Sets {
-
+    
     private TreeSet intersect(TreeSet sortSet1, TreeSet sortSet2){
     
         sortSet1.retainAll(sortSet2);
@@ -50,32 +50,35 @@ public class Sets {
     }
 
     protected HashMap<Integer,TreeSet<Integer>> findSubSets(TreeSet <Integer> res){
-
-        TreeSet<Integer> temp = new TreeSet<>();
-        Iterator<Integer> iterator = res.iterator();
+        
         HashMap<Integer,TreeSet<Integer>> tets = new HashMap<>();
-        Integer tmp=res.first();
-        int i =0;
-
-        while(iterator.hasNext()){
-            Integer setElement = iterator.next();
-            temp.add(tmp);
-            if (iterator.hasNext()==false){
-                temp.add(setElement);
-                tets.put(i,new TreeSet<Integer>(temp));
-                i++;
-                temp.clear();
+        TreeSet<Integer> temp = new TreeSet<>();  
+        try{
+            Iterator<Integer> iterator = res.iterator(); 
+            Integer tmp=res.first();
+            int i =0;
+            while(iterator.hasNext()){
+                Integer setElement = iterator.next();
+                temp.add(tmp);
+                if (iterator.hasNext()==false){
+                    temp.add(setElement);
+                    tets.put(i,new TreeSet<Integer>(temp));
+                    i++;
+                    temp.clear();
+                }
+                if((setElement - tmp) >1) {
+                    tets.put(i,new TreeSet<Integer>(temp));
+                    i++;
+                    temp.clear();
+                    temp.add(setElement);
+                }
+                tmp = setElement;
             }
-            if((setElement - tmp) >1) {
-                tets.put(i,new TreeSet<Integer>(temp));
-                i++;
-                temp.clear();
-                temp.add(setElement);
-            }
-            tmp = setElement;
-        }
+        }catch (NoSuchElementException e){System.out.println("нет совпадений");}
+        
         return tets;
     }
+    
     protected  Integer getClosestNum(HashMap<Integer,TreeSet<Integer>> hashmap, Integer num){
         
         Integer resNum = 0;
@@ -90,4 +93,5 @@ public class Sets {
         }
        return  resNum=hash.get(hash.firstKey());
     }
+    
 }
