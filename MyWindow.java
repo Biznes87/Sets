@@ -1,33 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sets;
 
 import java.awt.Color;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
-import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.*;
 
-/**
- *
- * @author dex
- */
 public class MyWindow extends javax.swing.JFrame {
-
-   
+ 
     public MyWindow() {
         initComponents();
     }
     private API resSubsets=new API();
-    
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -56,7 +44,6 @@ public class MyWindow extends javax.swing.JFrame {
         jCB10 = new javax.swing.JCheckBox();
         jTF11 = new javax.swing.JTextField();
         jCB11 = new javax.swing.JCheckBox();
-        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         getSetsButton = new javax.swing.JButton();
         getNearestNumButton = new javax.swing.JButton();
@@ -67,6 +54,7 @@ public class MyWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Test sets programm");
+        setPreferredSize(new java.awt.Dimension(615, 400));
         setResizable(false);
 
         jCB1.addActionListener(new java.awt.event.ActionListener() {
@@ -76,12 +64,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF1.setEditable(false);
-        jTF1.setText("Enter set");
-        jTF1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTF1ActionPerformed(evt);
-            }
-        });
+        jTF1.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF1KeyTyped(evt);
@@ -89,7 +72,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF2.setEditable(false);
-        jTF2.setText("Enter set");
+        jTF2.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF2.setToolTipText("");
         jTF2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -98,7 +81,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF3.setEditable(false);
-        jTF3.setText("Enter set");
+        jTF3.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF3KeyTyped(evt);
@@ -106,7 +89,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF4.setEditable(false);
-        jTF4.setText("Enter set");
+        jTF4.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF4KeyTyped(evt);
@@ -114,7 +97,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF5.setEditable(false);
-        jTF5.setText("Enter set");
+        jTF5.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF5KeyTyped(evt);
@@ -146,7 +129,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF6.setEditable(false);
-        jTF6.setText("Enter set");
+        jTF6.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF6KeyTyped(evt);
@@ -154,7 +137,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF7.setEditable(false);
-        jTF7.setText("Enter set");
+        jTF7.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF7KeyTyped(evt);
@@ -162,7 +145,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF8.setEditable(false);
-        jTF8.setText("Enter set");
+        jTF8.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF8.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF8KeyTyped(evt);
@@ -170,7 +153,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF9.setEditable(false);
-        jTF9.setText("Enter set");
+        jTF9.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF9.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF9KeyTyped(evt);
@@ -178,7 +161,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF10.setEditable(false);
-        jTF10.setText("Enter set");
+        jTF10.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF10.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF10KeyTyped(evt);
@@ -224,50 +207,84 @@ public class MyWindow extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Results");
+        jLabel1.setToolTipText("");
+
+        getSetsButton.setText("Get sets");
+        getSetsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getSetsButtonActionPerformed(evt);
+            }
+        });
+
+        getNearestNumButton.setText("Get nearest num");
+        getNearestNumButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getNearestNumButtonActionPerformed(evt);
+            }
+        });
+
+        jTA1.setEditable(false);
+        jTA1.setColumns(20);
+        jTA1.setRows(5);
+        jScrollPane1.setViewportView(jTA1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCB4)
-                            .addComponent(jCB5))
-                        .addComponent(jCB3)
-                        .addComponent(jCB2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jCB1))
-                    .addComponent(jCB11))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTF11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTF2)
-                                .addComponent(jTF3)
-                                .addComponent(jTF4)
-                                .addComponent(jTF5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCB6)
-                            .addComponent(jCB7)
-                            .addComponent(jCB8)
-                            .addComponent(jCB9)
-                            .addComponent(jCB10))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCB4)
+                                    .addComponent(jCB5))
+                                .addComponent(jCB3)
+                                .addComponent(jCB2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(jCB1)))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTF6)
-                            .addComponent(jTF7)
-                            .addComponent(jTF8)
-                            .addComponent(jTF9)
-                            .addComponent(jTF10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jScrollPane1))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(getSetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(getNearestNumButton)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTF5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jTF4, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTF3, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTF2, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTF1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCB6)
+                                    .addComponent(jCB7)
+                                    .addComponent(jCB8)
+                                    .addComponent(jCB9)
+                                    .addComponent(jCB10))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTF6)
+                                    .addComponent(jTF7)
+                                    .addComponent(jTF8)
+                                    .addComponent(jTF9)
+                                    .addComponent(jTF10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jCB11)
+                        .addGap(19, 19, 19)
+                        .addComponent(jTF11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,105 +319,59 @@ public class MyWindow extends javax.swing.JFrame {
                     .addComponent(jCB5)
                     .addComponent(jTF10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCB10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTF11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCB11)))
-        );
-
-        jLabel1.setText("Results");
-        jLabel1.setToolTipText("");
-
-        getSetsButton.setText("Get sets");
-        getSetsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                getSetsButtonActionPerformed(evt);
-            }
-        });
-
-        getNearestNumButton.setText("Get nearest num");
-        getNearestNumButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                getNearestNumButtonActionPerformed(evt);
-            }
-        });
-
-        jTA1.setEditable(false);
-        jTA1.setColumns(20);
-        jTA1.setRows(5);
-        jScrollPane1.setViewportView(jTA1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(getSetsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(getNearestNumButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(83, 83, 83))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTF11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCB11))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(getSetsButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(getNearestNumButton))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 49, Short.MAX_VALUE))
+                        .addComponent(getNearestNumButton)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(295, 295, 295))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF1ActionPerformed
-
-    }//GEN-LAST:event_jTF1ActionPerformed
-
     private void getSetsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getSetsButtonActionPerformed
-            jTA1.setText("");  
-            if(!emptyOrNotEditableFileds(jTFBox())){
-                resSubsets.setDefaultSets(fieldsSurvey(jTFBox()));            
-              
-                int c=0;
-                if (!resSubsets.getSubSets().entrySet().isEmpty()){
-                for (Map.Entry<Integer,TreeSet<Integer>> entry : resSubsets.getSubSets().entrySet()) {
-               
+        
+        jTA1.setText("");  
+        if((!emptyOrNotEditableFileds(jTFBox()))){
+            resSubsets.setDefaultSetsFromString(getStringArray(jTFBox()));            
+            int c=0;
+            if ((!resSubsets.getSubSets().entrySet().isEmpty())){
+                for (Map.Entry<Integer,double[]> entry : resSubsets.getSubSets().entrySet()) {
                     if (c!=0) jTA1.append("u");
-                    jTA1.append("["+entry.getValue().first().toString() + "," + entry.getValue().last().toString() + "]");          
+                    jTA1.append(Arrays.toString(entry.getValue()) + "\n");          
                     c++;
                 }
-               }else{jTA1.setText("no intersections "+"\n");        }
-            }else{jTA1.setText("Fields is empty "+"\n");        }
+           }else{
+                jTA1.setText("Нет пересечений или введено неверное значение  "+"\n"); 
+            }
+        }else{
+            jTA1.setText("Поля пусты "+"\n");
+        }
     }//GEN-LAST:event_getSetsButtonActionPerformed
 
     private void jCB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB1ActionPerformed
@@ -490,11 +461,11 @@ public class MyWindow extends javax.swing.JFrame {
     private void getNearestNumButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getNearestNumButtonActionPerformed
 
     if((jTF11.isEditable())&&(!jTF11.getText().isEmpty())){
-        resSubsets.setNumber(Integer.valueOf(jTF11.getText()));
+        resSubsets.setNumber(Double.valueOf(jTF11.getText()));
            if(!emptyOrNotEditableFileds(jTFBox())){
-                jTA1.append(String.valueOf("\n" + "nearest num is " + resSubsets.getNearestnumber()));
-           }else{jTA1.append("The default set was used [0,1]" + "\n" + "nearest num is " + resSubsets.getNearestnumber());      }
-         }else jTA1.append("'Enter number' field is emty" +"\n");
+                jTA1.append(String.valueOf("\n" + "Ближайшее число это " + resSubsets.getNearestnumber()));
+           }
+         }else jTA1.append("Поле 'Enter number' пустое" +"\n");
     }//GEN-LAST:event_getNearestNumButtonActionPerformed
 
 
@@ -515,7 +486,6 @@ public class MyWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTA1;
     private javax.swing.JTextField jTF1;
@@ -533,93 +503,60 @@ public class MyWindow extends javax.swing.JFrame {
 
  
  private void ifif(JCheckBox jCB, JTextField jTF){
-     if (jCB.isSelected()){
-         jTF.setEditable(true); jTF.setText("");
-     }
-        else  {jTF.setEditable(false);jTF.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");} 
+    
+    if (jCB.isSelected()){
+        jTF.setEditable(true); jTF.setText("");
+    }else {
+        jTF.setEditable(false);jTF.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+    } 
  }
-public void keyTyped(KeyEvent e, JTextField jTF) { jTF.setForeground(Color.BLACK);}
+ 
+public void keyTyped(KeyEvent e, JTextField jTF) {
+
+    jTF.setForeground(Color.BLACK);
+}
 
  private  boolean checkIn(String s){
        
-        Pattern p = Pattern.compile("(\\[\\u002D?\\d*\\,\\u002D?\\d*\\]\\u0075?\\[?\\u002D?\\d*?\\,?\\u002D?\\d*?\\]?)");  
-        Matcher m = p.matcher(s);       
-        return m.matches();  
+    Pattern p = Pattern.compile("(\\[\\u002D?\\d*\\.?\\d*?\\;\\u002D?\\d*\\.?\\d*?\\]\\u0075?\\[?\\u002D?\\d*?\\.?\\d*?\\;?\\u002D?\\d*?\\.?\\d*?\\]?)");  
+    Matcher m = p.matcher(s);       
+    return m.matches();  
     }
  
  private JTextField[] jTFBox(){
    
-     JTextField[] box = new JTextField[10];
+    JTextField[] box = new JTextField[10];
     box[0] = jTF1; box[1] = jTF2;box[2] = jTF3;box[3] = jTF4;box[4] = jTF5;
-    box[5] = jTF6; box[6] = jTF7;box[7] = jTF8;box[8] = jTF9;box[9] = jTF10;   
-        
- return box;
+    box[5] = jTF6; box[6] = jTF7;box[7] = jTF8;box[8] = jTF9;box[9] = jTF10;    
+    return box;
  }
  
- private TreeSet myParser(String s){
-     
-     TreeSet<Integer> treeset = new TreeSet<>();
-     
-    if(s.contains("u")){
-        String[] subSets = s.split("(\\u0075)");
-        for (int i = 0; i < subSets.length; i++) {
-            String[] parts = subSets[i].split("\\s|\\[|\\,|\\]");
-            if(Integer.valueOf(parts[2])>Integer.valueOf(parts[1])){
-                for (int j = Integer.valueOf(parts[1]); j <= Integer.valueOf(parts[2]); j++) {
-                    treeset.add(j);
-                }
-            }else{
-                jTA1.append("первый элемент подмножества больше второго" + "\n");
-                return treeset;
+ private ArrayList<String> getStringArray(JTextField[] container){
+    
+    ArrayList<String> arr = new ArrayList<>();
+    int count=1;
+    for (JTextField jTF : container) {
+        if((jTF.isEditable())&&(!jTF.getText().isEmpty())){
+            if(checkIn(jTF.getText())){
+                arr.add(jTF.getText());
+            }else {
+                jTA1.append("В поле "+ count + "введено неверное значение" + "\n");
             }
         }
-    } else {
-        String[] parts = s.split("\\s|\\[|\\,|\\]");
-        
-        if(Integer.valueOf(parts[2])>Integer.valueOf(parts[1])){
-            for (int j = Integer.valueOf(parts[1]); j <= Integer.valueOf(parts[2]); j++) {
-                treeset.add(j);    
-            } 
-        }else{
-                jTA1.append("первый элемент подмножества больше второго" + "\n");
-                return treeset;
-            }
+        count++;
     }
-     return treeset;
- 
- }
- 
- private HashMap<Integer,TreeSet> fieldsSurvey(JTextField[] container){
-     HashMap<Integer,TreeSet> sets = new HashMap<>();
-        for (int i = 0; i < container.length; i++) {
-         if(container[i].isEditable() ) {
-             if(checkIn(container[i].getText())){       
-                sets.put(i,myParser(container[i].getText()));
-             }else{
-                 jTA1.append("Неверный формат в "+(i+1) +" текстовом поле" + "\n");
-                 container[i].setForeground(Color.RED);
-             }
-         }
-     }
-       for (Map.Entry<Integer,TreeSet> entry: sets.entrySet()) {
-           System.out.println(entry.getValue());
-     }
-     return sets;
- 
+    return arr;
  }
  
  private boolean  emptyOrNotEditableFileds(JTextField[] container)    {
      
-     int flag=0;
-      for (int i = 0; i < container.length; i++) {
-          if((!container[i].isEditable()) || ((container[i].getText().isEmpty()))){
-              flag++;
-          } 
-      }
-      if(flag==10) return true;
-      else return false;
+    int flag=0;
+    for (int i = 0; i < container.length; i++) {
+        if((!container[i].isEditable()) || ((container[i].getText().isEmpty()))){
+          flag++;
+        } 
+    }
+    if(flag==10) return true;
+    else return false;
  }
- 
- 
- 
 }
