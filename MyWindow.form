@@ -197,17 +197,16 @@
         <Component class="javax.swing.JTextField" name="jTF1">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Enter set"/>
+            <Property name="text" type="java.lang.String" value="[x1,x2] or [[x1,x2]u[x3,x4]]"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF1ActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTF1KeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTF2">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Enter set"/>
+            <Property name="text" type="java.lang.String" value="[x1,x2] or [[x1,x2]u[x3,x4]]"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
@@ -217,7 +216,7 @@
         <Component class="javax.swing.JTextField" name="jTF3">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Enter set"/>
+            <Property name="text" type="java.lang.String" value="[x1,x2] or [[x1,x2]u[x3,x4]]"/>
           </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTF3KeyTyped"/>
@@ -226,7 +225,7 @@
         <Component class="javax.swing.JTextField" name="jTF4">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Enter set"/>
+            <Property name="text" type="java.lang.String" value="[x1,x2] or [[x1,x2]u[x3,x4]]"/>
           </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTF4KeyTyped"/>
@@ -235,7 +234,7 @@
         <Component class="javax.swing.JTextField" name="jTF5">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Enter set"/>
+            <Property name="text" type="java.lang.String" value="[x1,x2] or [[x1,x2]u[x3,x4]]"/>
           </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTF5KeyTyped"/>
@@ -264,7 +263,7 @@
         <Component class="javax.swing.JTextField" name="jTF6">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Enter set"/>
+            <Property name="text" type="java.lang.String" value="[x1,x2] or [[x1,x2]u[x3,x4]]"/>
           </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTF6KeyTyped"/>
@@ -273,7 +272,7 @@
         <Component class="javax.swing.JTextField" name="jTF7">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Enter set"/>
+            <Property name="text" type="java.lang.String" value="[x1,x2] or [[x1,x2]u[x3,x4]]"/>
           </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTF7KeyTyped"/>
@@ -282,7 +281,7 @@
         <Component class="javax.swing.JTextField" name="jTF8">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Enter set"/>
+            <Property name="text" type="java.lang.String" value="[x1,x2] or [[x1,x2]u[x3,x4]]"/>
           </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTF8KeyTyped"/>
@@ -291,7 +290,7 @@
         <Component class="javax.swing.JTextField" name="jTF9">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Enter set"/>
+            <Property name="text" type="java.lang.String" value="[x1,x2] or [[x1,x2]u[x3,x4]]"/>
           </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTF9KeyTyped"/>
@@ -300,7 +299,7 @@
         <Component class="javax.swing.JTextField" name="jTF10">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Enter set"/>
+            <Property name="text" type="java.lang.String" value="[x1,x2] or [[x1,x2]u[x3,x4]]"/>
           </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTF10KeyTyped"/>

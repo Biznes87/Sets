@@ -1,37 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sets;
 
 import java.awt.Color;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.math.BigDecimal;
-import static java.math.BigDecimal.ROUND_CEILING;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
-import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.*;
 
-/**
- *
- * @author dex
- */
 public class MyWindow extends javax.swing.JFrame {
-
-   
+ 
     public MyWindow() {
         initComponents();
     }
     private API resSubsets=new API();
-    
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -80,12 +64,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF1.setEditable(false);
-        jTF1.setText("Enter set");
-        jTF1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTF1ActionPerformed(evt);
-            }
-        });
+        jTF1.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF1KeyTyped(evt);
@@ -93,7 +72,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF2.setEditable(false);
-        jTF2.setText("Enter set");
+        jTF2.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF2.setToolTipText("");
         jTF2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -102,7 +81,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF3.setEditable(false);
-        jTF3.setText("Enter set");
+        jTF3.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF3KeyTyped(evt);
@@ -110,7 +89,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF4.setEditable(false);
-        jTF4.setText("Enter set");
+        jTF4.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF4KeyTyped(evt);
@@ -118,7 +97,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF5.setEditable(false);
-        jTF5.setText("Enter set");
+        jTF5.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF5KeyTyped(evt);
@@ -150,7 +129,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF6.setEditable(false);
-        jTF6.setText("Enter set");
+        jTF6.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF6KeyTyped(evt);
@@ -158,7 +137,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF7.setEditable(false);
-        jTF7.setText("Enter set");
+        jTF7.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF7KeyTyped(evt);
@@ -166,7 +145,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF8.setEditable(false);
-        jTF8.setText("Enter set");
+        jTF8.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF8.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF8KeyTyped(evt);
@@ -174,7 +153,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF9.setEditable(false);
-        jTF9.setText("Enter set");
+        jTF9.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF9.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF9KeyTyped(evt);
@@ -182,7 +161,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF10.setEditable(false);
-        jTF10.setText("Enter set");
+        jTF10.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
         jTF10.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF10KeyTyped(evt);
@@ -375,25 +354,24 @@ public class MyWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF1ActionPerformed
-
-    }//GEN-LAST:event_jTF1ActionPerformed
-
     private void getSetsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getSetsButtonActionPerformed
-            jTA1.setText("");  
-            
-            if((!emptyOrNotEditableFileds(jTFBox()))){
-                resSubsets.setDefaultSetsFromString(getStringArray(jTFBox()));            
-              
-                int c=0;
-                if (!resSubsets.getSubSets().entrySet().isEmpty()){
+        
+        jTA1.setText("");  
+        if((!emptyOrNotEditableFileds(jTFBox()))){
+            resSubsets.setDefaultSetsFromString(getStringArray(jTFBox()));            
+            int c=0;
+            if ((!resSubsets.getSubSets().entrySet().isEmpty())){
                 for (Map.Entry<Integer,double[]> entry : resSubsets.getSubSets().entrySet()) {
                     if (c!=0) jTA1.append("u");
                     jTA1.append(Arrays.toString(entry.getValue()) + "\n");          
                     c++;
                 }
-               }else{jTA1.setText("no intersections "+"\n");        }
-            }else{jTA1.setText("Fields is empty "+"\n");        }
+           }else{
+                jTA1.setText("Нет пересечений или введено неверное значение  "+"\n"); 
+            }
+        }else{
+            jTA1.setText("Поля пусты "+"\n");
+        }
     }//GEN-LAST:event_getSetsButtonActionPerformed
 
     private void jCB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB1ActionPerformed
@@ -485,9 +463,9 @@ public class MyWindow extends javax.swing.JFrame {
     if((jTF11.isEditable())&&(!jTF11.getText().isEmpty())){
         resSubsets.setNumber(Double.valueOf(jTF11.getText()));
            if(!emptyOrNotEditableFileds(jTFBox())){
-                jTA1.append(String.valueOf("\n" + "nearest num is " + resSubsets.getNearestnumber()));
-           }else{jTA1.append("The default set was used [0,1]" + "\n" + "nearest num is " + resSubsets.getNearestnumber());      }
-         }else jTA1.append("'Enter number' field is emty" +"\n");
+                jTA1.append(String.valueOf("\n" + "Ближайшее число это " + resSubsets.getNearestnumber()));
+           }
+         }else jTA1.append("Поле 'Enter number' пустое" +"\n");
     }//GEN-LAST:event_getNearestNumButtonActionPerformed
 
 
@@ -525,53 +503,60 @@ public class MyWindow extends javax.swing.JFrame {
 
  
  private void ifif(JCheckBox jCB, JTextField jTF){
-     if (jCB.isSelected()){
-         jTF.setEditable(true); jTF.setText("");
-     }
-        else  {jTF.setEditable(false);jTF.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");} 
+    
+    if (jCB.isSelected()){
+        jTF.setEditable(true); jTF.setText("");
+    }else {
+        jTF.setEditable(false);jTF.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+    } 
  }
-public void keyTyped(KeyEvent e, JTextField jTF) { jTF.setForeground(Color.BLACK);}
+ 
+public void keyTyped(KeyEvent e, JTextField jTF) {
+
+    jTF.setForeground(Color.BLACK);
+}
 
  private  boolean checkIn(String s){
        
-        Pattern p = Pattern.compile("(\\[\\u002D?\\d*\\.?\\d*?\\;\\u002D?\\d*\\.?\\d*?\\]\\u0075?\\[?\\u002D?\\d*?\\.?\\d*?\\;?\\u002D?\\d*?\\.?\\d*?\\]?)");  
-        Matcher m = p.matcher(s);       
-        return m.matches();  
+    Pattern p = Pattern.compile("(\\[\\u002D?\\d*\\.?\\d*?\\;\\u002D?\\d*\\.?\\d*?\\]\\u0075?\\[?\\u002D?\\d*?\\.?\\d*?\\;?\\u002D?\\d*?\\.?\\d*?\\]?)");  
+    Matcher m = p.matcher(s);       
+    return m.matches();  
     }
  
  private JTextField[] jTFBox(){
    
-     JTextField[] box = new JTextField[10];
+    JTextField[] box = new JTextField[10];
     box[0] = jTF1; box[1] = jTF2;box[2] = jTF3;box[3] = jTF4;box[4] = jTF5;
-    box[5] = jTF6; box[6] = jTF7;box[7] = jTF8;box[8] = jTF9;box[9] = jTF10;
-  
-        
- return box;
+    box[5] = jTF6; box[6] = jTF7;box[7] = jTF8;box[8] = jTF9;box[9] = jTF10;    
+    return box;
  }
  
  private ArrayList<String> getStringArray(JTextField[] container){
-     ArrayList<String> arr = new ArrayList<>();
-     int count=1;
-     for (JTextField jTF : container) {
-          if((jTF.isEditable())&&(!jTF.getText().isEmpty())){
-              if(checkIn(jTF.getText())){
-                      arr.add(jTF.getText());
-              }else jTA1.append("В поле "+ count + "введено неверное значение" + "\n");
-          };
-          count++;
-     }
-     return arr;
+    
+    ArrayList<String> arr = new ArrayList<>();
+    int count=1;
+    for (JTextField jTF : container) {
+        if((jTF.isEditable())&&(!jTF.getText().isEmpty())){
+            if(checkIn(jTF.getText())){
+                arr.add(jTF.getText());
+            }else {
+                jTA1.append("В поле "+ count + "введено неверное значение" + "\n");
+            }
+        }
+        count++;
+    }
+    return arr;
  }
  
  private boolean  emptyOrNotEditableFileds(JTextField[] container)    {
      
-     int flag=0;
-      for (int i = 0; i < container.length; i++) {
-          if((!container[i].isEditable()) || ((container[i].getText().isEmpty()))){
-              flag++;
-          } 
-      }
-      if(flag==10) return true;
-      else return false;
+    int flag=0;
+    for (int i = 0; i < container.length; i++) {
+        if((!container[i].isEditable()) || ((container[i].getText().isEmpty()))){
+          flag++;
+        } 
+    }
+    if(flag==10) return true;
+    else return false;
  }
 }
