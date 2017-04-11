@@ -6,7 +6,30 @@
 Подмножества воодятся либо одним интервалом [x1;x2], либо объединением 2-x интервалов [x1;x2]u[x3;x4].
 Для задания интервала от минус бесконечности используется - "-Inf", для плюс бесконечности - "+Inf"
 
+ API реализовано в одноименном классе.
  В API существуют функции для задания числа x,массива интервалов, получения подмножеств, получения числа максимально
  близкого к х.
+ Задать массив подмножеств можно либо в стороковом виде ArrayList<String>, либо в виде HashMap<Integer, double[]> [].
  
- API реализовано в одноименном классе.
+ Пример использования:
+  String str1 = "[-Inf;4]u[6;+Inf]";
+  String str2 = "[-Inf;1]u[2;+Inf]";
+  String str3 = "[-Inf;3.5]u[5;+Inf]";
+    
+  ArrayList<String> arr1 = new ArrayList<>();
+  arr1.add(str3);arr1.add(str1);arr1.add(str2);
+       
+  API api=new API();
+  api.setNumber(2);
+  api.setDefaultSetsFromString(arr1);
+  for (Map.Entry<Integer,double[]> entry : api.getSubSets().entrySet()) {
+      System.out.println(Arrays.toString(entry.getValue()));
+  }
+  api.getSubSets();
+
+В результате получим 
+[-Infinity, 1.0]
+[2.0, 3.5]
+[6.0, Infinity]
+
+ 
