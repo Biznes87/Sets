@@ -12,24 +12,36 @@
  Задать массив подмножеств можно либо в стороковом виде ArrayList<String>, либо в виде HashMap<Integer, double[]> [].
  
  Пример использования:
-  String str1 = "[-Inf;4]u[6;+Inf]";
-  String str2 = "[-Inf;1]u[2;+Inf]";
-  String str3 = "[-Inf;3.5]u[5;+Inf]";
-    
-  ArrayList<String> arr1 = new ArrayList<>();
-  arr1.add(str3);arr1.add(str1);arr1.add(str2);
-       
-  API api=new API();
-  api.setNumber(2);
-  api.setDefaultSetsFromString(arr1);
-  for (Map.Entry<Integer,double[]> entry : api.getSubSets().entrySet()) {
-      System.out.println(Arrays.toString(entry.getValue()));
-  }
-  api.getSubSets();
+  String str1 = "[-Inf,4]u[6,+Inf]";
+        String str2 = "[-Inf,1]u[2,+Inf]";
+        String str3 = "[-Inf,3.5]u[5,+Inf]";
+
+        ArrayList<String> arr1 = new ArrayList<>();
+        arr1.add(str3);arr1.add(str1);arr1.add(str2);
+        a.setDefaultSetsFromString(arr1);
+        a.getSubSets().print();
+        System.out.println(a.getClosestNum(a.getSubSets(),3));
 
 В результате получим  
-[-Infinity, 1.0]
-[2.0, 3.5]
-[6.0, Infinity]
+[-Infinity,1.0]u[2.0,3.5]u[6.0,Infinity]
+3.0
 
+Или так:
+        Interval first=new Interval(Double.NEGATIVE_INFINITY,1);
+       Interval sec=new Interval(3,6);
+
+       Interval thi = new Interval(8, Double.POSITIVE_INFINITY);
+        SubSet sub = new SubSet(first,sec); sub.add(thi);
+        SubSet sub1= new SubSet(new Interval(Double.NEGATIVE_INFINITY,4),new Interval(5, Double.POSITIVE_INFINITY));
+        SubSet sub2= new SubSet(new Interval(Double.NEGATIVE_INFINITY,0),new Interval(9, Double.POSITIVE_INFINITY));
+        SubSetsContainer inter = new SubSetsContainer();
+        inter.addSubSet(sub);inter.addSubSet(sub1);inter.addSubSet(sub2);
+        API a= new API();
+        a.setDefaultSets(inter);
+        a.getSubSets().print();
+        System.out.println(a.getClosestNum(a.getSubSets(),3));
+
+В результате получим  
+[-Infinity,0.0]u[9.0,Infinity]
+0.0
  
