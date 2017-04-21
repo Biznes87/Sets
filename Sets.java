@@ -4,142 +4,156 @@ package sets;
 import java.util.*;
 import static java.lang.Math.abs;
 
-public abstract class Sets {
- 
-    protected  double getClosestNum(HashMap<Integer,double[]> hashmap, double num){
-        
-        double resNum = 0.0;
-        SortedMap<Double,Double> hash=new TreeMap<>();        
-        
-        for (Map.Entry<Integer,double[]> entry: hashmap.entrySet()) {
-            if((num>=entry.getValue()[0])&&(num<=entry.getValue()[1]) ){resNum = num; return resNum;} 
-            else{
-                hash.put(abs(num-entry.getValue()[0]),entry.getValue()[0]);
-                hash.put(abs(num-entry.getValue()[1]),entry.getValue()[1]);
+public  class Sets {
+
+    protected  double getClosestNum(SubSetsContainer inters, double num){ //получаем ближайшее число к указанному
+
+        double resNum=0.0;
+        SortedMap<Double,Double> hash=new TreeMap<>();
+        try {
+            for (int i=0; i<inters.getSize();i++){
+                for(int j =0; j<inters.getSubSet(i).getSize(); j++) {
+
+                    if (inters.getSubSet(i).contains(num)) { //если какой либо интервал подмножеств контейнера содержит число,
+                                                            //то возвращаем это число
+                        resNum = num;
+                        return resNum;
+                    } else {
+                        //иначе,добавляем модуль разности между числом и крайней точкой интервалов в качестве ключа TreeMap, а
+                        //значением становится крайняя точка
+                        hash.put(abs(num - inters.getSubSet(i).getInterval(j).getLeft()), inters.getSubSet(i).getInterval(j).getLeft());
+                        hash.put(abs(num - inters.getSubSet(i).getInterval(j).getRight()), inters.getSubSet(i).getInterval(j).getRight());
+                    }
+                }
             }
+            return  resNum=hash.get(hash.firstKey());//так как TreeMap сортирована, то берем первое значение
+        }catch (NoSuchElementException e){
+            System.out.println("нет пересечений");
+            resNum=num;
+            return resNum;
         }
-       return  resNum=hash.get(hash.firstKey());
+
     }
     
-    private HashMap <Integer,double[]>  intersection(HashMap <Integer,double[]> set1,HashMap <Integer,double[]> set2 ){
+    public SubSet intersection(SubSet set1, SubSet set2 ){      //пересечение подмножеств
         
-        HashMap <Integer,double[]> resSet = new HashMap<>(); resSet.get(1);
-        double [] tmp = new double[2];
-        int count = 0;
-        
-        for (int i = 0; i < set1.size(); i++) {
-            for (int j = 0; j < set2.size(); j++) {
-                double a = set1.get(i)[0]; 
-                double b = set1.get(i)[1];
-                double x = set2.get(j)[0]; double y = set2.get(j)[1];
-                if((a>y)||(b<x)){
-                  //  resSet.clear();
-                }else{if((a>=x)&&(b>=y)){ 
-                    resSet.put(count, new double[]{a,y});
+       SubSet resSet = new SubSet();
+
+        for (int i = 0; i < set1.getSize(); i++) {
+            for (int j = 0; j < set2.getSize(); j++) {
+                double a = set1.getInterval(i).getLeft();   double b = set1.getInterval(i).getRight();
+                double x = set2.getInterval(j).getLeft(); ; double y = set2.getInterval(j).getRight();
+
+                if(!((a>y)||(b<x))) {  //условие пересекаемости, если не проходит,значит нет пересечения
+
+                    if ((a >= x) && (b > y)) {
+                        resSet.add(new Interval(a,y)); //добавляем в результат новый интервал
+                    }
+                    if ((a < x) && (b <= y)) {
+                        resSet.add(new Interval(x,b));
+                    }
+                    if ((a >= x) && (b <= y)) {
+                        resSet.add(new Interval(a,b));
+                    }
+                    if ((a < x) && (b > y)) {
+                        resSet.add(new Interval(x,y));
+                    }
                 }
-                if((a<=x)&&(b<=y)){
-                   resSet.put(count, new double[]{x,b});
-                }
-                if((a>=x)&&(b<=y)){
-                   resSet.put(count, new double[]{a,b});
-                }
-                if((a<=x)&&(b>=y)){
-                     resSet.put(count, new double[]{x,y}); 
-                }
-                count++;}               
             }           
         }      
        return resSet;
     }
-   
-    private double[] intervalParse(String str ){
+
+    private Interval intervalParse(String str ){ //получаем Интревал из Строки
         
-        double [] resArr= new double[2];
+        Interval  resArr= new Interval();
         
-        String[] parts = str.split("\\s|\\[|\\;|\\]");       
-        for (int i = 1; i <parts.length; i++) {
-            if(parts[i].equals("-Inf")){
-                resArr[i-1] = Double.NEGATIVE_INFINITY;
+        String[] parts = str.split("\\s|\\[|\\,|\\]");
+
+            if(parts[1].equals("-Inf")){
+                resArr.replace(Double.NEGATIVE_INFINITY,Double.valueOf(parts[2]));
             }
-            else if(parts[i].equals("+Inf")){
-                resArr[i-1] = Double.POSITIVE_INFINITY;
+            else if(parts[2].equals("+Inf")){
+                resArr.replace(Double.valueOf(parts[1]),Double.POSITIVE_INFINITY);
             }
-            else{ 
-                resArr[i-1] = Double.valueOf(parts[i]);
+            else{
+                resArr.replace(Double.valueOf(parts[1]),Double.valueOf(parts[2]));
             }
-        }
+
         return resArr;
     }
-    
-    protected HashMap<Integer, double[]> [] toHashMap(ArrayList<String> str){
-       
-        HashMap<Integer, double[]>[] res = new HashMap[str.size()];
-        HashMap<Integer, double[]> tmpres = new HashMap<>();
-       
+
+    protected SubSetsContainer toIntervalSets(ArrayList<String> str){ //преобразуем список из строк в Контейнер подмножеств
+
+        SubSetsContainer res = new SubSetsContainer();
+        SubSet tmpres = new SubSet();
+
         for(int i = 0; i < str.size(); i++){
-            if(str.get(i).contains("u")){
+            if(str.get(i).contains("u")){//если есть объединение
                 String[] subSets = str.get(i).split("(\\u0075)");
-                for (int j = 0; j < subSets.length; j++) { 
-                    tmpres.put(j,intervalParse(subSets[j]));  
+                for (int j = 0; j < subSets.length; j++) { //перебирем строки, превращая каждую в Интревал
+                    tmpres.add(intervalParse(subSets[j]));
                 }
-                res[i]= new HashMap<Integer, double[]> (tmpres);
+                res.addSubSet(new SubSet(tmpres));
             }else {
-                tmpres.put(0,intervalParse(str.get(i)));
-                res[i]= new HashMap<Integer, double[]> (tmpres);
+                tmpres.add(intervalParse(str.get(i)));
+                res.addSubSet(new SubSet(tmpres));
             }
             tmpres.clear();
         }
-      return res;
+        return res;
     }
-    
-    private boolean uniqCheck (HashMap<Integer, double[]> hashmap, double[] arr){
-        
+
+    private boolean uniqCheck (SubSetsContainer is, SubSet sub) { //проверка уникальности, добавляемого в Контейнер подмножества
         boolean flag = true;
-        
-        for (Map.Entry <Integer, double[]> entry : hashmap.entrySet()) {
-            if ((arr[0] == entry.getValue()[0])&&(arr[1] == entry.getValue()[1])){ 
-                flag = false;
-            }
+
+        for (int i = 0; i < is.getSize(); i++) {
+            if (is.getSubSet(i).equal(sub)){flag=false;}
         }
         return flag;
     }
-   
-    protected HashMap<Integer, double[]> findFinalSet(HashMap<Integer, double[]> [] arr){
-        
-        HashMap<Integer, double[]> finalResult = new HashMap<>();        
-        HashMap<Integer, double[]> tmpResult = new HashMap<>();
-        HashMap<Integer, double[]> tmp = new HashMap<>();
+
+
+    protected SubSetsContainer findFinalSet(SubSetsContainer arr){ //находим результирующее подмножество и помещаем в Контейнер
+
+        SubSetsContainer finalResult = new SubSetsContainer();
+        SubSetsContainer tmpResult = new SubSetsContainer();
+        SubSetsContainer tmp = new SubSetsContainer();
+        SubSetsContainer tmpSub =  new SubSetsContainer();
         int k=0;
-        
+
         try{
-            tmpResult.putAll(arr[0]);
-            for (int i = 1; i < arr.length; i++) {
+            tmpResult.addSubSet(arr.getSubSet(0)); //добавляем 1 подмножество в Контенер временный
+            for (int i = 1; i < arr.getSize(); i++) {
                 finalResult.clear();
                 tmp.clear();
-                tmp.putAll(intersection(tmpResult,arr[i]));
+                tmp.addSubSet(intersection(tmpResult.getSubSet(0),arr.getSubSet(i))); //добавлем во второй временный контейнер результат пересечения 0го
+                //подмножества 1го временного контейнера и iго подмножества входного Контейнера
                 tmpResult.clear();
-                if(!tmp.isEmpty()){
-                    tmpResult.putAll(tmp);
-                    for (Map.Entry <Integer, double[]> entry : tmpResult.entrySet()) {
-                        //Проверка на уникальность добавляемого отрезка
-                        if(uniqCheck(finalResult, entry.getValue())){
-                            finalResult.put(k,entry.getValue());
-                            k++;
-                        }     
-                    }         
+                if(!tmp.isEmpty()){ //если 2й временный Контейнер не пуст(так как если он пуст то пересечений нет)
+                   tmpResult.addSubSet(tmp.getSubSet(0));
+                    Iterator<SubSet> iter = tmpResult.iterator();
+                    while(iter.hasNext()){
+                        tmpSub.clear();
+                            tmpSub.addSubSet(iter.next());
+                            if(uniqCheck(finalResult, tmpSub.getSubSet(0))){//если подмножество уникально, то добавляем в результирующий Контейнер
+                            finalResult.addSubSet(tmpSub.getSubSet(0));
+                            }
+                    }
+
                 }else {
-                   finalResult.clear();
-                   return finalResult;
+                    finalResult.clear();
+                    return finalResult;
                 }
                 tmpResult.clear();
-                tmpResult.putAll(finalResult);
+                tmpResult.addAll(finalResult);
             }
-        }catch(Exception e){ 
+        }catch(Exception e){
             e.printStackTrace();
         }
-        if(arr.length==1){
-            finalResult.putAll(tmpResult);
-        }      
+        if(arr.getSize()==1){
+            finalResult.addAll(tmpResult);
+        }
         return finalResult;
-    } 
+    }
 }

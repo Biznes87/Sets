@@ -3,21 +3,20 @@ package sets;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
+import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.*;
 
 public class MyWindow extends javax.swing.JFrame {
- 
+
     public MyWindow() {
         initComponents();
     }
     private API resSubsets=new API();
-   
+
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
@@ -352,124 +351,135 @@ public class MyWindow extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void getSetsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getSetsButtonActionPerformed
-        
-        jTA1.setText("");  
-        if((!emptyOrNotEditableFileds(jTFBox()))){
-            resSubsets.setDefaultSetsFromString(getStringArray(jTFBox()));            
-            int c=0;
-            if ((!resSubsets.getSubSets().entrySet().isEmpty())){
-                for (Map.Entry<Integer,double[]> entry : resSubsets.getSubSets().entrySet()) {
-                    if (c!=0) jTA1.append("u");
-                    jTA1.append(Arrays.toString(entry.getValue()) + "\n");          
-                    c++;
-                }
-           }else{
-                jTA1.setText("Нет пересечений или введено неверное значение  "+"\n"); 
-            }
-        }else{
-            jTA1.setText("Поля пусты "+"\n");
-        }
-    }//GEN-LAST:event_getSetsButtonActionPerformed
+    private void getSetsButtonActionPerformed(java.awt.event.ActionEvent evt) {
+       try {
+           jTA1.setText("");
+           if ((!emptyOrNotEditableFileds(jTFBox()))) {
+               resSubsets.setDefaultSetsFromString(getStringArray(jTFBox()));
+               int c = 0;
+               if ((!resSubsets.getSubSets().isEmpty())) {
+                   Iterator<SubSet> iter = resSubsets.getSubSets().iterator();
+                   while (iter.hasNext()) {
 
-    private void jCB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB1ActionPerformed
-        ifif(jCB1,jTF1);       
-    }//GEN-LAST:event_jCB1ActionPerformed
+                       jTA1.append(iter.next().print() + "\n");
+                       c++;
+                   }
+               } else {
+                   jTA1.setText("Нет пересечений или введено неверное значение  " + "\n");
+               }
+           } else {
+               jTA1.setText("Поля пусты " + "\n");
+           }
+       }catch (Exception e){jTA1.setText(e.getMessage());}
+    }
 
-    private void jCB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB2ActionPerformed
-        ifif(jCB2,jTF2);         
-    }//GEN-LAST:event_jCB2ActionPerformed
+    private void jCB1ActionPerformed(java.awt.event.ActionEvent evt) {
+        ifif(jCB1,jTF1);
+    }
 
-    private void jCB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB3ActionPerformed
-         ifif(jCB3,jTF3);          
-    }//GEN-LAST:event_jCB3ActionPerformed
+    private void jCB2ActionPerformed(java.awt.event.ActionEvent evt) {
+        ifif(jCB2,jTF2);
+    }
 
-    private void jCB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB4ActionPerformed
-        ifif(jCB4,jTF4);    
-    }//GEN-LAST:event_jCB4ActionPerformed
+    private void jCB3ActionPerformed(java.awt.event.ActionEvent evt) {
+         ifif(jCB3,jTF3);
+    }
 
-    private void jCB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB5ActionPerformed
-         ifif(jCB5,jTF5);   
-    }//GEN-LAST:event_jCB5ActionPerformed
+    private void jCB4ActionPerformed(java.awt.event.ActionEvent evt) {
+        ifif(jCB4,jTF4);
+    }
 
-    private void jCB11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB11ActionPerformed
-        ifif(jCB11,jTF11);   
-    }//GEN-LAST:event_jCB11ActionPerformed
+    private void jCB5ActionPerformed(java.awt.event.ActionEvent evt) {
+         ifif(jCB5,jTF5);
+    }
 
-    private void jCB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB6ActionPerformed
-         ifif(jCB6,jTF6);  
-    }//GEN-LAST:event_jCB6ActionPerformed
+    private void jCB11ActionPerformed(java.awt.event.ActionEvent evt) {
+        ifif(jCB11,jTF11);
+    }
 
-    private void jCB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB7ActionPerformed
-         ifif(jCB7,jTF7);  
-    }//GEN-LAST:event_jCB7ActionPerformed
+    private void jCB6ActionPerformed(java.awt.event.ActionEvent evt) {
+         ifif(jCB6,jTF6);
+    }
 
-    private void jCB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB8ActionPerformed
-          ifif(jCB8,jTF8);   
-    }//GEN-LAST:event_jCB8ActionPerformed
+    private void jCB7ActionPerformed(java.awt.event.ActionEvent evt) {
+         ifif(jCB7,jTF7);
+    }
 
-    private void jCB9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB9ActionPerformed
-         ifif(jCB9,jTF9);  
-    }//GEN-LAST:event_jCB9ActionPerformed
+    private void jCB8ActionPerformed(java.awt.event.ActionEvent evt) {
+          ifif(jCB8,jTF8);
+    }
 
-    private void jCB10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB10ActionPerformed
-         ifif(jCB10,jTF10);    
-    }//GEN-LAST:event_jCB10ActionPerformed
+    private void jCB9ActionPerformed(java.awt.event.ActionEvent evt) {
+         ifif(jCB9,jTF9);
+    }
+
+    private void jCB10ActionPerformed(java.awt.event.ActionEvent evt) {
+         ifif(jCB10,jTF10);
+    }
 
     private void jTF1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF1KeyTyped
-        keyTyped(evt,jTF1); 
-    }//GEN-LAST:event_jTF1KeyTyped
+        keyTyped(evt,jTF1);
+    }
 
     private void jTF5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF5KeyTyped
-        keyTyped(evt, jTF5);    
-    }//GEN-LAST:event_jTF5KeyTyped
+        keyTyped(evt, jTF5);
+    }
 
     private void jTF2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF2KeyTyped
-         keyTyped(evt, jTF2); 
-    }//GEN-LAST:event_jTF2KeyTyped
+         keyTyped(evt, jTF2);
+    }
 
     private void jTF3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF3KeyTyped
-         keyTyped(evt, jTF3);        
-    }//GEN-LAST:event_jTF3KeyTyped
+         keyTyped(evt, jTF3);
+    }
 
     private void jTF4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF4KeyTyped
-         keyTyped(evt, jTF4); 
-    }//GEN-LAST:event_jTF4KeyTyped
+         keyTyped(evt, jTF4);
+    }
 
     private void jTF6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF6KeyTyped
-         keyTyped(evt, jTF6); 
-    }//GEN-LAST:event_jTF6KeyTyped
+         keyTyped(evt, jTF6);
+    }
 
     private void jTF7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF7KeyTyped
-         keyTyped(evt, jTF7); 
-    }//GEN-LAST:event_jTF7KeyTyped
+         keyTyped(evt, jTF7);
+    }
 
     private void jTF8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF8KeyTyped
-         keyTyped(evt, jTF8); 
-    }//GEN-LAST:event_jTF8KeyTyped
+         keyTyped(evt, jTF8);
+    }
 
     private void jTF9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF9KeyTyped
-         keyTyped(evt, jTF9); 
-    }//GEN-LAST:event_jTF9KeyTyped
+         keyTyped(evt, jTF9);
+    }
 
     private void jTF10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF10KeyTyped
-         keyTyped(evt, jTF10); 
-    }//GEN-LAST:event_jTF10KeyTyped
+         keyTyped(evt, jTF10);
+    }
 
-    private void getNearestNumButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getNearestNumButtonActionPerformed
+    private void getNearestNumButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        try {
 
-    if((jTF11.isEditable())&&(!jTF11.getText().isEmpty())){
-        resSubsets.setNumber(Double.valueOf(jTF11.getText()));
-           if(!emptyOrNotEditableFileds(jTFBox())){
-                jTA1.append(String.valueOf("\n" + "Ближайшее число это " + resSubsets.getNearestnumber()));
-           }
-         }else jTA1.append("Поле 'Enter number' пустое" +"\n");
-    }//GEN-LAST:event_getNearestNumButtonActionPerformed
+            if ((!emptyOrNotEditableFileds(jTFBox()))) {
+                resSubsets.setDefaultSetsFromString(getStringArray(jTFBox()));
+                if((jTF11.isEditable())&&(!jTF11.getText().isEmpty())){
+                    resSubsets.setNumber(Double.valueOf(jTF11.getText()));
+                    if(!emptyOrNotEditableFileds(jTFBox())){
+                        jTA1.append(String.valueOf("\n" + "Ближайшее число это " + resSubsets.getNearestnumber()));
+                    }
+                }else jTA1.append("Поле 'Enter number' пустое" +"\n");
+
+                } else {
+                jTA1.setText("Поля пусты " + "\n");
+            }
+        }catch (Exception e){jTA1.setText(e.getMessage());}
+
+    }
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+
     private javax.swing.JButton getNearestNumButton;
     private javax.swing.JButton getSetsButton;
     private javax.swing.JCheckBox jCB1;
@@ -499,31 +509,31 @@ public class MyWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTF7;
     private javax.swing.JTextField jTF8;
     private javax.swing.JTextField jTF9;
-    // End of variables declaration//GEN-END:variables
+
 
  
- private void ifif(JCheckBox jCB, JTextField jTF){
+ private void ifif(JCheckBox jCB, JTextField jTF){//проверяет поставлена ли галочка
     
-    if (jCB.isSelected()){
+    if (jCB.isSelected()){ //если поставлена, то разрешаем редактирование
         jTF.setEditable(true); jTF.setText("");
     }else {
-        jTF.setEditable(false);jTF.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+        jTF.setEditable(false);jTF.setText("[x1,x2] or [[x1,x2]u[x3,x4]]"); //киначе показывае подсказку
     } 
  }
- 
+
 public void keyTyped(KeyEvent e, JTextField jTF) {
 
     jTF.setForeground(Color.BLACK);
 }
 
- private  boolean checkIn(String s){
-       
-    Pattern p = Pattern.compile("(\\[\\u002D?\\d*\\.?\\d*?\\;\\u002D?\\d*\\.?\\d*?\\]\\u0075?\\[?\\u002D?\\d*?\\.?\\d*?\\;?\\u002D?\\d*?\\.?\\d*?\\]?)");  
+ private  boolean checkIn(String s){ //проверка правильности вводимой строки
+
+    Pattern p = Pattern.compile("(\\[\\u002D?(Inf)?\\d*?\\.?\\d*?\\,\\u002D?\\d*\\.?\\d*?\\]\\u0075?\\[?\\u002D?\\d*?\\.?\\d*?\\,?\\u002B?(Inf)?\\d*?\\.?\\d*?\\]?)");
     Matcher m = p.matcher(s);       
     return m.matches();  
     }
  
- private JTextField[] jTFBox(){
+ private JTextField[] jTFBox(){ //массив тектовых полей
    
     JTextField[] box = new JTextField[10];
     box[0] = jTF1; box[1] = jTF2;box[2] = jTF3;box[3] = jTF4;box[4] = jTF5;
@@ -531,14 +541,14 @@ public void keyTyped(KeyEvent e, JTextField jTF) {
     return box;
  }
  
- private ArrayList<String> getStringArray(JTextField[] container){
+ private ArrayList<String> getStringArray(JTextField[] container){ //получаем массив строк
     
     ArrayList<String> arr = new ArrayList<>();
     int count=1;
     for (JTextField jTF : container) {
-        if((jTF.isEditable())&&(!jTF.getText().isEmpty())){
-            if(checkIn(jTF.getText())){
-                arr.add(jTF.getText());
+        if((jTF.isEditable())&&(!jTF.getText().isEmpty())){ //если поле редактируемо и не пустое
+            if(checkIn(jTF.getText())){ //если соответствует паттерну
+                arr.add(jTF.getText());//то добавляем содержимое поля в массив
             }else {
                 jTA1.append("В поле "+ count + "введено неверное значение" + "\n");
             }
@@ -548,15 +558,16 @@ public void keyTyped(KeyEvent e, JTextField jTF) {
     return arr;
  }
  
- private boolean  emptyOrNotEditableFileds(JTextField[] container)    {
-     
+ private boolean  emptyOrNotEditableFileds(JTextField[] container)    {//проверка на незаполненные поля
+
     int flag=0;
     for (int i = 0; i < container.length; i++) {
-        if((!container[i].isEditable()) || ((container[i].getText().isEmpty()))){
-          flag++;
+        if((!container[i].isEditable()) || ((container[i].getText().isEmpty()))){ //если поле не активно или пусто
+          flag++; //прибавляем флаг
         } 
     }
-    if(flag==10) return true;
+    if(flag==10) return true; //если все поля пустые то истина
     else return false;
  }
+
 }
