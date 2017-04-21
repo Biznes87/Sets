@@ -122,7 +122,7 @@ public  class Sets {
         SubSetsContainer tmpSub =  new SubSetsContainer();
         int k=0;
 
-        try{//
+        try{
             tmpResult.addSubSet(arr.getSubSet(0)); //добавляем 1 подмножество в Контенер временный
             for (int i = 1; i < arr.getSize(); i++) {
                 finalResult.clear();
