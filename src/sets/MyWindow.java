@@ -63,7 +63,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF1.setEditable(false);
-        jTF1.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+        jTF1.setText("[x1,x2] or [-Inf,x2]u[x3,x4]");
         jTF1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF1KeyTyped(evt);
@@ -71,7 +71,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF2.setEditable(false);
-        jTF2.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+        jTF2.setText("[x1,x2] or [x1,x2]u[x3,+Inf]");
         jTF2.setToolTipText("");
         jTF2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -80,7 +80,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF3.setEditable(false);
-        jTF3.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+        jTF3.setText("[x1,x2] or [x1,x2]u[x3,x4]");
         jTF3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF3KeyTyped(evt);
@@ -88,7 +88,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF4.setEditable(false);
-        jTF4.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+        jTF4.setText("[x1,+Inf] or [x1,x2]u[x3,x4]");
         jTF4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF4KeyTyped(evt);
@@ -96,7 +96,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF5.setEditable(false);
-        jTF5.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+        jTF5.setText("[x1,x2] or [x1,x2]u[x3,x4]");
         jTF5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF5KeyTyped(evt);
@@ -128,7 +128,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF6.setEditable(false);
-        jTF6.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+        jTF6.setText("[x1,x2] or [x1,x2]u[x3,x4]");
         jTF6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF6KeyTyped(evt);
@@ -136,7 +136,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF7.setEditable(false);
-        jTF7.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+        jTF7.setText("[-Inf,-x2] or [x1,x2]u[x3,x4]");
         jTF7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF7KeyTyped(evt);
@@ -144,7 +144,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF8.setEditable(false);
-        jTF8.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+        jTF8.setText("[x1,x2] or [x1,x2]u[x3,x4]");
         jTF8.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF8KeyTyped(evt);
@@ -152,7 +152,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF9.setEditable(false);
-        jTF9.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+        jTF9.setText("[x1,x2] or [-Inf,x2]u[x3,+Inf]");
         jTF9.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF9KeyTyped(evt);
@@ -160,7 +160,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF10.setEditable(false);
-        jTF10.setText("[x1,x2] or [[x1,x2]u[x3,x4]]");
+        jTF10.setText("[x1,x2] or [x1,x2]u[x3,x4]");
         jTF10.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF10KeyTyped(evt);
@@ -372,7 +372,7 @@ public class MyWindow extends javax.swing.JFrame {
            } else {
                jTA1.setText("Поля пусты " + "\n");
            }
-       }catch (Exception e){jTA1.setText(e.getMessage());e.printStackTrace();}
+       }catch (Exception e){jTA1.setText(e.getMessage());}
     }
 
     private void jCB1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -517,7 +517,7 @@ public class MyWindow extends javax.swing.JFrame {
     if (jCB.isSelected()){ //если поставлена, то разрешаем редактирование
         jTF.setEditable(true); jTF.setText("");
     }else {
-        jTF.setEditable(false);jTF.setText("[x1,x2] or [[x1,x2]u[x3,x4]]"); //киначе показывае подсказку
+        jTF.setEditable(false);jTF.setText("[x1,x2] or [x1,x2]u[x3,x4]"); //киначе показывае подсказку
     } 
  }
 
@@ -528,7 +528,7 @@ public void keyTyped(KeyEvent e, JTextField jTF) {
 
  private  boolean checkIn(String s){ //проверка правильности вводимой строки
 
-    Pattern p = Pattern.compile("(\\[\\u002D?(Inf)?\\d*?\\.?\\d*?\\,\\u002D?\\d*\\.?\\d*?\\]\\u0075?\\[?\\u002D?\\d*?\\.?\\d*?\\,?\\u002B?(Inf)?\\d*?\\.?\\d*?\\]?)");
+    Pattern p = Pattern.compile("(\\[\\u002D?(Inf)?\\u002B?\\d*?\\.?\\d*?\\,\\u002B?(Inf)?\\u002D?\\d*\\.?\\d*?\\]\\u0075?\\[?\\u002D?\\d*?\\.?\\d*?\\,?\\u002D?\\u002B?(Inf)?\\d*?\\.?\\d*?\\]?)");
     Matcher m = p.matcher(s);       
     return m.matches();  
     }

@@ -69,6 +69,10 @@ public  class Sets {
         Interval  resArr= new Interval();
         
         String[] parts = str.split("\\s|\\[|\\,|\\]");
+            if((parts[1].equals("-Inf"))&&(parts[2].equals("+Inf"))){
+                resArr = new Interval(Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY);
+                return resArr;
+            }
 
             if(parts[1].equals("-Inf")){
                 resArr = new Interval(Double.NEGATIVE_INFINITY,Double.valueOf(parts[2]));
