@@ -9,6 +9,7 @@ public class SubSet { //Класс представляет подмножест
     private ArrayList<Interval> subSet=new ArrayList<>();
 
 
+
     public int getSize() {
         return subSet.size();
     }
@@ -42,19 +43,21 @@ public class SubSet { //Класс представляет подмножест
 
     public void add(Interval interval){
         Interval res = new Interval();
+        ArrayList<Interval> tmp = new ArrayList();
         //добавить интервал в подмножество
         if(subSet.size()>=1){ //для подмножеств в которых 2 и более интервалов
             for (Interval inter:subSet) {
                 res=interIntersection(interval,inter);
                 if(res!=null){
                            subSet.remove(inter);                                                                                                         //если существуют общие точки
-                    subSet.add(new Interval(res.getLeft(),res.getRight()));//заменить интервалы, интервалов из общих точек,
-                                                                                                                            // то есть их персечением
+                    subSet.add(new Interval(res.getLeft(),res.getRight()));//заменить интервалы, интервалов из общих точек, // то есть их персечением
+                }else {
+                    tmp.add(interval);break;
                 }
             }
-            subSet.add(interval);
-        }else {subSet.add(interval);}
 
+        }else {subSet.add(interval);}
+        subSet.addAll(tmp);
 
     }
 

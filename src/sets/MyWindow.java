@@ -372,7 +372,7 @@ public class MyWindow extends javax.swing.JFrame {
            } else {
                jTA1.setText("Поля пусты " + "\n");
            }
-       }catch (Exception e){jTA1.setText(e.getMessage());}
+       }catch (Exception e){jTA1.setText(e.getMessage());e.printStackTrace();}
     }
 
     private void jCB1ActionPerformed(java.awt.event.ActionEvent evt) {
