@@ -71,13 +71,13 @@ public  class Sets {
         String[] parts = str.split("\\s|\\[|\\,|\\]");
 
             if(parts[1].equals("-Inf")){
-                resArr.replace(Double.NEGATIVE_INFINITY,Double.valueOf(parts[2]));
+                resArr = new Interval(Double.NEGATIVE_INFINITY,Double.valueOf(parts[2]));
             }
             else if(parts[2].equals("+Inf")){
-                resArr.replace(Double.valueOf(parts[1]),Double.POSITIVE_INFINITY);
+                resArr = new Interval(Double.valueOf(parts[1]),Double.POSITIVE_INFINITY);
             }
             else{
-                resArr.replace(Double.valueOf(parts[1]),Double.valueOf(parts[2]));
+                resArr = new Interval(Double.valueOf(parts[1]),Double.valueOf(parts[2]));
             }
 
         return resArr;

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class TestTask {
 
     public static void solution(){
+     /*
        Interval first=new Interval(Double.NEGATIVE_INFINITY,1);
        Interval sec=new Interval(3,6);
 
@@ -14,13 +15,14 @@ public class TestTask {
         SubSet sub2= new SubSet(new Interval(Double.NEGATIVE_INFINITY,0),new Interval(9, Double.POSITIVE_INFINITY));
         SubSetsContainer inter = new SubSetsContainer();
         inter.addSubSet(sub);inter.addSubSet(sub1);inter.addSubSet(sub2);
+*/
         API a= new API();
-        a.setDefaultSets(inter);
-        a.getSubSets().print();
-        System.out.println(a.getClosestNum(a.getSubSets(),3));
+  //      a.setDefaultSets(inter);
+    //    a.getSubSets().print();
+      //  System.out.println(a.getClosestNum(a.getSubSets(),3));
 
-        String str1 = "[-Inf,4]u[6,+Inf]";
-        String str2 = "[-Inf,1]u[2,+Inf]";
+        String str1 = "[1,10]u[12,15]"; //[-Inf,10]u[6,+Inf] [-Inf,3.5]u[5,+Inf]  [-Inf,-1]u[2,+Inf]
+        String str2 = "[-Inf,12]u[15,+Inf]";
         String str3 = "[-Inf,3.5]u[5,+Inf]";
 
         ArrayList<String> arr1 = new ArrayList<>();
@@ -32,8 +34,8 @@ public class TestTask {
     }
 
     public static void main(String[] args) {
-      MyWindow m = new MyWindow();
-        m.setVisible(true);
+    //  MyWindow m = new MyWindow();
+      //  m.setVisible(true);
         solution();
     }
 }

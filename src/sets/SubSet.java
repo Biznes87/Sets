@@ -27,9 +27,7 @@ public class SubSet { //Класс представляет подмножест
     }
 
     public SubSet(Interval interval){
-
         subSet.add(interval);
-
     }
 
     public SubSet(Interval interval,Interval interval1){
@@ -42,16 +40,21 @@ public class SubSet { //Класс представляет подмножест
 
     }
 
-    public void add(Interval interval){  //добавить интервал в подмножество
+    public void add(Interval interval){
+        Interval res = new Interval();
+        //добавить интервал в подмножество
         if(subSet.size()>=1){ //для подмножеств в которых 2 и более интервалов
             for (Interval inter:subSet) {
-                if(interIntersection(interval,inter)!=null){ //если существуют общие точки
-                    inter.replace(interIntersection(interval,inter).getLeft(),interIntersection(interval,inter).getRight());//заменить интервалы, интервалов из общих точек,
+                res=interIntersection(interval,inter);
+                if(res!=null){
+                           subSet.remove(inter);                                                                                                         //если существуют общие точки
+                    subSet.add(new Interval(res.getLeft(),res.getRight()));//заменить интервалы, интервалов из общих точек,
                                                                                                                             // то есть их персечением
-                };
+                }
             }
-        }
-        subSet.add(interval);
+            subSet.add(interval);
+        }else {subSet.add(interval);}
+
 
     }
 
@@ -66,16 +69,16 @@ public class SubSet { //Класс представляет подмножест
         if(!((a>y)||(b<x))) {  //условие пересекаемости
 
             if ((a >= x) && (b > y)) {
-                in.replace(a,y);
+                in = new Interval(a,y);
             }
             if ((a < x) && (b <= y)) {
-                in.replace(x,b);
+                in = new Interval(x,b);
             }
             if ((a >= x) && (b <= y)) {
-                in.replace(a,b);
+                in = new Interval(a,b);
             }
             if ((a < x) && (b > y)) {
-                in.replace(x,y);
+                in = new Interval(x,y);
             }
         }else{in = null;}
         return in;
@@ -103,12 +106,22 @@ public class SubSet { //Класс представляет подмножест
            int count=0;
             for (int i=0;i<subSet.size();i++) {
                 if (i ==subSet.size()-1) {
-                    System.out.println("[" + subSet.get(i).getLeft() + "," + subSet.get(i).getRight() + "]");
-                    res=res +"[" + subSet.get(i).getLeft() + "," + subSet.get(i).getRight() + "]";
+                    if(subSet.get(i).getLeft()==subSet.get(i).getRight()) {
+                        System.out.println("[" + subSet.get(i).getRight() + "]");
+                        res=res +"[" +  subSet.get(i).getRight() + "]";
+                    }else {
+                        System.out.println("[" + subSet.get(i).getLeft() + "," + subSet.get(i).getRight() + "]");
+                        res = res + "[" + subSet.get(i).getLeft() + "," + subSet.get(i).getRight() + "]";
+                    }
 
                 }else{
-                    System.out.print("[" + subSet.get(i).getLeft() + "," + subSet.get(i).getRight() + "]" + "u");
-                    res=res +"[" + subSet.get(i).getLeft() + "," + subSet.get(i).getRight() + "]" + "u";
+                    if(subSet.get(i).getLeft()==subSet.get(i).getRight()) {
+                        System.out.print("[" + subSet.get(i).getRight() + "]"+ "u");
+                        res=res +"[" +  subSet.get(i).getRight() + "]"+ "u";
+                    }else {
+                        System.out.print("[" + subSet.get(i).getLeft() + "," + subSet.get(i).getRight() + "]" + "u");
+                        res = res + "[" + subSet.get(i).getLeft() + "," + subSet.get(i).getRight() + "]" + "u";
+                    }
                 }
                 count++;
             }
