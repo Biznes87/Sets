@@ -528,7 +528,7 @@ public void keyTyped(KeyEvent e, JTextField jTF) {
 
  private  boolean checkIn(String s){ //проверка правильности вводимой строки
 
-    Pattern p = Pattern.compile("(\\[\\u002D?(Inf)?\\u002B?\\d*?\\.?\\d*?\\,\\u002B?(Inf)?\\u002D?\\d*\\.?\\d*?\\]\\u0075?\\[?\\u002D?\\d*?\\.?\\d*?\\,?\\u002D?\\u002B?(Inf)?\\d*?\\.?\\d*?\\]?)");
+    Pattern p = Pattern.compile("(\\[\\u002D?(Inf)?\\u002B?\\d*?\\.?\\d*?\\s*?\\,\\s*?\\u002B?(Inf)?\\u002D?\\d*\\.?\\d*?\\]\\u0075?\\[?\\u002D?\\d*?\\.?\\d*?\\s*?\\,?\\s*?\\u002D?\\u002B?(Inf)?\\d*?\\.?\\d*?\\]?)");
     Matcher m = p.matcher(s);       
     return m.matches();  
     }
