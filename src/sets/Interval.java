@@ -21,14 +21,7 @@ public class Interval  {  //Класс для создания интервал�
             this.right = right;
         }
     }
-/*
-    public void replace(double left, double right){ //фуенкция замены значений интервала
-        if(validCheck(left,right)) {
-            this.left = left;
-            this.right = right;
-        }
-    }
-*/
+
     private boolean validCheck(double l, double r){ //функция проверки "правильности" интервала. Левое значение не должно быть больше правого
         boolean flag=true;
         if(l>r){
@@ -38,10 +31,11 @@ public class Interval  {  //Класс для создания интервал�
         return flag;
     }
 
-    public void print(){
-        if(left==right) System.out.println("["+left+"]");
-        System.out.println("["+left+","+right+"]");
-    } //вывод интервала на консоль
-
+    public String  print(){
+        String str = "";
+        if(left==right) str ="["+left+"]";
+        else str = "["+left+","+right+"]";
+        return str;
+    } //печать интервала
 }
 

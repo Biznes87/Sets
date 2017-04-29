@@ -13,7 +13,7 @@ public class MyWindow extends javax.swing.JFrame {
     public MyWindow() {
         initComponents();
     }
-    private API resSubsets=new API();
+  //  private SubSetsContainer resSubsets=new SubSetsContainer();
 
     @SuppressWarnings("unchecked")
 
@@ -357,15 +357,12 @@ public class MyWindow extends javax.swing.JFrame {
        try {
            jTA1.setText("");
            if ((!emptyOrNotEditableFileds(jTFBox()))) {
-               resSubsets.setDefaultSetsFromString(getStringArray(jTFBox()));
-               int c = 0;
+              SubSetsContainer resSubsets=new SubSetsContainer(getStringArray(jTFBox()));
                if ((!resSubsets.getSubSets().isEmpty())) {
-                   Iterator<SubSet> iter = resSubsets.getSubSets().iterator();
-                   while (iter.hasNext()) {
 
-                       jTA1.append(iter.next().print() + "\n");
-                       c++;
-                   }
+                       jTA1.append(resSubsets.print() + "\n");
+
+
                } else {
                    jTA1.setText("Нет пересечений или введено неверное значение  " + "\n");
                }
@@ -463,11 +460,11 @@ public class MyWindow extends javax.swing.JFrame {
         try {
 
             if ((!emptyOrNotEditableFileds(jTFBox()))) {
-                resSubsets.setDefaultSetsFromString(getStringArray(jTFBox()));
+             SubSetsContainer resSubsets=new SubSetsContainer(getStringArray(jTFBox()));
                 if((jTF11.isEditable())&&(!jTF11.getText().isEmpty())){
-                    resSubsets.setNumber(Double.valueOf(jTF11.getText()));
+                 //   resSubsets.setNumber(Double.valueOf(jTF11.getText()));
                     if(!emptyOrNotEditableFileds(jTFBox())){
-                        jTA1.append(String.valueOf("\n" + "Ближайшее число это " + resSubsets.getNearestnumber()));
+                        jTA1.append(String.valueOf("\n" + "Ближайшее число это " + resSubsets.getClosestNum(Double.valueOf(jTF11.getText()))));
                     }
                 }else jTA1.append("Поле 'Enter number' пустое" +"\n");
 
@@ -528,7 +525,7 @@ public void keyTyped(KeyEvent e, JTextField jTF) {
 
  private  boolean checkIn(String s){ //проверка правильности вводимой строки
 
-    Pattern p = Pattern.compile("(\\[\\u002D?(Inf)?\\u002B?\\d*?\\.?\\d*?\\s*?\\,\\s*?\\u002B?(Inf)?\\u002D?\\d*\\.?\\d*?\\]\\u0075?\\[?\\u002D?\\d*?\\.?\\d*?\\s*?\\,?\\s*?\\u002D?\\u002B?(Inf)?\\d*?\\.?\\d*?\\]?)");
+    Pattern p = Pattern.compile("(\\[\\u002D?(Inf)?\\u002B?\\d*?\\.?\\d*?\\,\\u002B?(Inf)?\\u002D?\\d*\\.?\\d*?\\]\\u0075?\\[?\\u002D?\\d*?\\.?\\d*?\\,?\\u002D?\\u002B?(Inf)?\\d*?\\.?\\d*?\\]?)");
     Matcher m = p.matcher(s);       
     return m.matches();  
     }

@@ -1,6 +1,7 @@
 package sets;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class SubSet { //Класс представляет подмножество. Может состоять как из 1 так и нескольких интервалов.
                         //Можно создать объект этого класса с 1 или 2 интервалами.Чтобы добавить интервалы нужно воспользоваться матодом add
@@ -158,4 +159,7 @@ public class SubSet { //Класс представляет подмножест
     public void clear(){ //очистить подмножество.
         subSet.clear();
     }
+
+
+
 }
