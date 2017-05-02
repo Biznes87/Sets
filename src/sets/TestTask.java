@@ -5,6 +5,8 @@ import java.util.HashSet;
 
 public class TestTask {
 
+
+
     public static void solution(){
 
     //   Interval first=new Interval(Double.NEGATIVE_INFINITY,1);
@@ -27,9 +29,9 @@ public class TestTask {
         System.out.println(a.getClosestNum(a.getSubSets(),3));
         */
 
-        String str1 = "[-Inf,10]u[6,+Inf]"; //[-Inf,10]u[6,+Inf] [-Inf,3.5]u[5,+Inf]  [-Inf,-1]u[2,+Inf]
-        String str2 = "[-Inf,-1]u[2,+Inf]";
-        String str3 = "[-Inf,3.5]u[5,+Inf]";
+        String str1 = "[-100,500]u[1000,3000]"; //[-Inf,10]u[6,+Inf] [-Inf,3.5]u[5,+Inf]  [-Inf,-1]u[2,+Inf]
+        String str2 = "[-Inf,1000]u[3000,5000]";
+        String str3 = "[-Inf,+Inf]";
 
         ArrayList<String> arr1 = new ArrayList<>();
         arr1.add(str3);
@@ -39,12 +41,12 @@ public class TestTask {
         SubSetsContainer inter = new SubSetsContainer(arr1);
 
         System.out.println(inter.getSubSets().print());
-        System.out.println(inter.getSubSets().getClosestNum(-40.0));
+        System.out.println(inter.getSubSets().getClosestNum(1900.0));
     }
 
     public static void main(String[] args) {
       MyWindow m = new MyWindow();
         m.setVisible(true);
-       // solution();
+      // solution();
     }
 }
