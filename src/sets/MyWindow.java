@@ -3,19 +3,23 @@ package sets;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.*;
 
 public class MyWindow extends javax.swing.JFrame {
+    private String[]  notes = new String[11];
+
 
     public MyWindow() {
         initComponents();
     }
+
+
   //  private SubSetsContainer resSubsets=new SubSetsContainer();
 
     @SuppressWarnings("unchecked")
+
 
     private void initComponents() {
 
@@ -51,6 +55,18 @@ public class MyWindow extends javax.swing.JFrame {
 
         jLabel2.setText("jLabel2");
 
+        notes[0] = "Возможные варианты";
+        notes[1] = "[x1,x2]";
+        notes[2] = "[x1,x2]u[x3,x4]";
+        notes[3] = "[-Inf,x2]u[x3,x4]";
+        notes[4] = "[x1,x2]u[x3,+Inf]";
+        notes[5] = "[-Inf,x2]u[x3,+Inf]";
+        notes[6] = "[x1,x2]";
+        notes[7] = "[x1,x2]u[x3,x4]";
+        notes[8] = "[-Inf,x2]u[x3,x4]";
+        notes[9] = "[x1,x2]u[x3,+Inf]";
+        notes[10]="Введите число";
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Test sets programm");
         setPreferredSize(new java.awt.Dimension(615, 400));
@@ -63,7 +79,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF1.setEditable(false);
-        jTF1.setText("[x1,x2] or [-Inf,x2]u[x3,x4]");
+        jTF1.setText( notes[0]);
         jTF1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF1KeyTyped(evt);
@@ -71,7 +87,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF2.setEditable(false);
-        jTF2.setText("[x1,x2] or [x1,x2]u[x3,+Inf]");
+        jTF2.setText(notes[1]);
         jTF2.setToolTipText("");
         jTF2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -80,7 +96,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF3.setEditable(false);
-        jTF3.setText("[x1,x2] or [x1,x2]u[x3,x4]");
+        jTF3.setText(notes[2]);
         jTF3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF3KeyTyped(evt);
@@ -88,7 +104,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF4.setEditable(false);
-        jTF4.setText("[x1,+Inf] or [x1,x2]u[x3,x4]");
+        jTF4.setText(notes[3]);
         jTF4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF4KeyTyped(evt);
@@ -96,7 +112,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF5.setEditable(false);
-        jTF5.setText("[x1,x2] or [x1,x2]u[x3,x4]");
+        jTF5.setText(notes[4]);
         jTF5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF5KeyTyped(evt);
@@ -128,7 +144,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF6.setEditable(false);
-        jTF6.setText("[x1,x2] or [x1,x2]u[x3,x4]");
+        jTF6.setText(notes[5]);
         jTF6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF6KeyTyped(evt);
@@ -136,7 +152,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF7.setEditable(false);
-        jTF7.setText("[-Inf,-x2] or [x1,x2]u[x3,x4]");
+        jTF7.setText(notes[6]);
         jTF7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF7KeyTyped(evt);
@@ -144,7 +160,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF8.setEditable(false);
-        jTF8.setText("[x1,x2] or [x1,x2]u[x3,x4]");
+        jTF8.setText(notes[7]);
         jTF8.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF8KeyTyped(evt);
@@ -152,7 +168,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF9.setEditable(false);
-        jTF9.setText("[x1,x2] or [-Inf,x2]u[x3,+Inf]");
+        jTF9.setText(notes[8]);
         jTF9.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF9KeyTyped(evt);
@@ -160,7 +176,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF10.setEditable(false);
-        jTF10.setText("[x1,x2] or [x1,x2]u[x3,x4]");
+        jTF10.setText(notes[9]);
         jTF10.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTF10KeyTyped(evt);
@@ -198,7 +214,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF11.setEditable(false);
-        jTF11.setText("Enter number");
+        jTF11.setText("Введите число");
 
         jCB11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,17 +222,17 @@ public class MyWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Results");
+        jLabel1.setText("Результат");
         jLabel1.setToolTipText("");
 
-        getSetsButton.setText("Get sets");
+        getSetsButton.setText("Пересечение");
         getSetsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getSetsButtonActionPerformed(evt);
             }
         });
 
-        getNearestNumButton.setText("Get nearest num");
+        getNearestNumButton.setText("Ближайшее число");
         getNearestNumButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getNearestNumButtonActionPerformed(evt);
@@ -360,7 +376,7 @@ public class MyWindow extends javax.swing.JFrame {
               SubSetsContainer resSubsets=new SubSetsContainer(getStringArray(jTFBox()));
                if ((!resSubsets.getSubSets().isEmpty())) {
 
-                       jTA1.append(resSubsets.print() + "\n");
+                       jTA1.append(resSubsets.getSubSets().print() + "\n");
 
 
                } else {
@@ -373,50 +389,50 @@ public class MyWindow extends javax.swing.JFrame {
     }
 
     private void jCB1ActionPerformed(java.awt.event.ActionEvent evt) {
-        ifif(jCB1,jTF1);
+        ifif(jCB1,jTF1,0);
     }
 
     private void jCB2ActionPerformed(java.awt.event.ActionEvent evt) {
-        ifif(jCB2,jTF2);
+        ifif(jCB2,jTF2,1);
     }
 
     private void jCB3ActionPerformed(java.awt.event.ActionEvent evt) {
-         ifif(jCB3,jTF3);
+         ifif(jCB3,jTF3,2);
     }
 
     private void jCB4ActionPerformed(java.awt.event.ActionEvent evt) {
-        ifif(jCB4,jTF4);
+        ifif(jCB4,jTF4,3);
     }
 
     private void jCB5ActionPerformed(java.awt.event.ActionEvent evt) {
-         ifif(jCB5,jTF5);
+         ifif(jCB5,jTF5,4);
     }
 
     private void jCB11ActionPerformed(java.awt.event.ActionEvent evt) {
-        ifif(jCB11,jTF11);
+        ifif(jCB11,jTF11,10);
     }
 
     private void jCB6ActionPerformed(java.awt.event.ActionEvent evt) {
-         ifif(jCB6,jTF6);
+         ifif(jCB6,jTF6,5);
     }
 
     private void jCB7ActionPerformed(java.awt.event.ActionEvent evt) {
-         ifif(jCB7,jTF7);
+         ifif(jCB7,jTF7,6);
     }
 
     private void jCB8ActionPerformed(java.awt.event.ActionEvent evt) {
-          ifif(jCB8,jTF8);
+          ifif(jCB8,jTF8,7);
     }
 
     private void jCB9ActionPerformed(java.awt.event.ActionEvent evt) {
-         ifif(jCB9,jTF9);
+         ifif(jCB9,jTF9,8);
     }
 
     private void jCB10ActionPerformed(java.awt.event.ActionEvent evt) {
-         ifif(jCB10,jTF10);
+         ifif(jCB10,jTF10,9);
     }
 
-    private void jTF1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF1KeyTyped
+    private void jTF1KeyTyped(java.awt.event.KeyEvent evt) {
         keyTyped(evt,jTF1);
     }
 
@@ -464,7 +480,7 @@ public class MyWindow extends javax.swing.JFrame {
                 if((jTF11.isEditable())&&(!jTF11.getText().isEmpty())){
                  //   resSubsets.setNumber(Double.valueOf(jTF11.getText()));
                     if(!emptyOrNotEditableFileds(jTFBox())){
-                        jTA1.append(String.valueOf("\n" + "Ближайшее число это " + resSubsets.getClosestNum(Double.valueOf(jTF11.getText()))));
+                        jTA1.append(String.valueOf("\n" + "Ближайшее число это " + resSubsets.getSubSets().getClosestNum(Double.valueOf(jTF11.getText()))));
                     }
                 }else jTA1.append("Поле 'Enter number' пустое" +"\n");
 
@@ -509,13 +525,13 @@ public class MyWindow extends javax.swing.JFrame {
 
 
  
- private void ifif(JCheckBox jCB, JTextField jTF){//проверяет поставлена ли галочка
+ private void ifif(JCheckBox jCB, JTextField jTF,int num){//проверяет поставлена ли галочка
     
     if (jCB.isSelected()){ //если поставлена, то разрешаем редактирование
         jTF.setEditable(true); jTF.setText("");
     }else {
-        jTF.setEditable(false);jTF.setText("[x1,x2] or [x1,x2]u[x3,x4]"); //киначе показывае подсказку
-    } 
+        jTF.setEditable(false);jTF.setText(notes[num]); //иначе показывае подсказку
+    }
  }
 
 public void keyTyped(KeyEvent e, JTextField jTF) {
