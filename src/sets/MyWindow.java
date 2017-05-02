@@ -55,7 +55,7 @@ public class MyWindow extends javax.swing.JFrame {
 
         jLabel2.setText("jLabel2");
 
-        notes[0] = "Возможные варианты";
+        notes[0] = "Possible input options";
         notes[1] = "[x1,x2]";
         notes[2] = "[x1,x2]u[x3,x4]";
         notes[3] = "[-Inf,x2]u[x3,x4]";
@@ -65,7 +65,7 @@ public class MyWindow extends javax.swing.JFrame {
         notes[7] = "[x1,x2]u[x3,x4]";
         notes[8] = "[-Inf,x2]u[x3,x4]";
         notes[9] = "[x1,x2]u[x3,+Inf]";
-        notes[10]="Введите число";
+        notes[10]="Enter number";
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Test sets programm");
@@ -214,7 +214,7 @@ public class MyWindow extends javax.swing.JFrame {
         });
 
         jTF11.setEditable(false);
-        jTF11.setText("Введите число");
+        jTF11.setText(notes[10]);
 
         jCB11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,17 +222,17 @@ public class MyWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Результат");
+        jLabel1.setText("Results");
         jLabel1.setToolTipText("");
 
-        getSetsButton.setText("Пересечение");
+        getSetsButton.setText("Get Set");
         getSetsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getSetsButtonActionPerformed(evt);
             }
         });
 
-        getNearestNumButton.setText("Ближайшее число");
+        getNearestNumButton.setText("Get nearest number");
         getNearestNumButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getNearestNumButtonActionPerformed(evt);
