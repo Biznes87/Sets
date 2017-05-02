@@ -22,12 +22,6 @@ public class TestTask {
 
 
 
-/*
-        API a= new API();
-        a.setDefaultSets(inter);
-        a.getSubSets().print();
-        System.out.println(a.getClosestNum(a.getSubSets(),3));
-        */
 
         String str1 = "[-100,500]u[1000,3000]"; //[-Inf,10]u[6,+Inf] [-Inf,3.5]u[5,+Inf]  [-Inf,-1]u[2,+Inf]
         String str2 = "[-Inf,1000]u[3000,5000]";
