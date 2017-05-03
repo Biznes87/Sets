@@ -27,6 +27,7 @@
         [-100.0,500.0]u[1000.0]u[3000.0]
         1000.0
 Или так:
+
         SubSet sub1= new SubSet(new Interval(Double.NEGATIVE_INFINITY,4),new Interval(5, Double.POSITIVE_INFINITY));
         SubSet sub2= new SubSet(new Interval(Double.NEGATIVE_INFINITY,0),new Interval(9, Double.POSITIVE_INFINITY));
        
